@@ -1,8 +1,8 @@
 [![build](https://github.com/felangel/bloc/workflows/build/badge.svg)](https://github.com/felangel/bloc/actions)
 
-# flutter_login
+# flutter_login + Navdrawer
 
-A new Flutter project.
+Following felangel login tutorial + adding Nav Drawer + Bloc
 
 ## Getting Started
 
