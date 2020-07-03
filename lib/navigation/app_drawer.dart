@@ -6,12 +6,26 @@ import 'package:flutter_login/home/home_page.dart';
 import 'package:flutter_login/home/test_page.dart';
 import 'package:flutter_login/navigation/bloc/appdrawer_bloc.dart';
 
-class AppDrawer extends StatelessWidget {
+class AppDrawer extends StatefulWidget {
+  @override
+  State<StatefulWidget> createState() => _AppDrawerState();
+}
+
+class _AppDrawerState extends State<AppDrawer> {
+  final GlobalKey<NavigatorState> _navigatorKey = GlobalKey();
   @override
   Widget build(BuildContext context) {
-  final AppdrawerBloc appdrawerBloc = BlocProvider.of<AppdrawerBloc>(context);
-   final AuthenticationBloc authenticationBloc =
-        BlocProvider.of<AuthenticationBloc>(context);
+    BlocProvider(
+        create: (_) => AppdrawerBloc(_navigatorKey), child: _AppDrawer());
+  }
+}
+
+class _AppDrawer extends StatelessWidget {
+  @override
+  Widget build(BuildContext context) {
+    final AppdrawerBloc appdrawerBloc = BlocProvider.of<AppdrawerBloc>(context);
+     final AuthenticationBloc authenticationBloc =
+          BlocProvider.of<AuthenticationBloc>(context);
 
     return Drawer(
       child: Column(
@@ -30,9 +44,9 @@ class AppDrawer extends StatelessWidget {
                       SchedulerBinding.instance.addPostFrameCallback((_) {
                         // close the app drawer
                         Navigator.of(context).pop();
-                      
-                       appdrawerBloc.add(TestPageEvent());
 
+                        BlocProvider.of<AppdrawerBloc>(context)
+                            .add(TestPageEvent());
                       });
                     },
                   ),
@@ -43,8 +57,8 @@ class AppDrawer extends StatelessWidget {
                       SchedulerBinding.instance.addPostFrameCallback((_) {
                         // close the app drawer
                         Navigator.of(context).pop();
-                        appdrawerBloc.add(HomePageEvent());
-
+                        BlocProvider.of<AppdrawerBloc>(context)
+                            .add(HomePageEvent());
                       });
                     },
                   ),
@@ -54,8 +68,8 @@ class AppDrawer extends StatelessWidget {
                     onTap: () {
                       SchedulerBinding.instance.addPostFrameCallback((_) {
                         // close the app drawer
-                        Navigator.of(context).pop();
-                       authenticationBloc.add(AuthenticationLoggedOut());
+                           Navigator.of(context).pop();
+                          authenticationBloc.add(AuthenticationLoggedOut());
                       });
                     },
                   )
@@ -68,7 +82,7 @@ class AppDrawer extends StatelessWidget {
     );
   }
 
-    static Route<dynamic> generateRoute(RouteSettings settings) {
+  static Route<dynamic> generateRoute(RouteSettings settings) {
     switch (settings.name) {
       case '/':
         return MaterialPageRoute(builder: (_) => HomePage());
