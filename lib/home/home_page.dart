@@ -10,7 +10,7 @@ class HomePage extends StatelessWidget {
       appBar: AppBar(
         title: Text('Home'),
       ),
-      drawer: AppDrawer(),
+      drawer: new AppDrawer(),
       body: Container(
         child: Center(
             child: RaisedButton(

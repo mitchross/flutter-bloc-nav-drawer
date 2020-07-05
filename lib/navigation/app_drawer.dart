@@ -15,8 +15,9 @@ class _AppDrawerState extends State<AppDrawer> {
   final GlobalKey<NavigatorState> _navigatorKey = GlobalKey();
   @override
   Widget build(BuildContext context) {
-    BlocProvider(
+   return  BlocProvider(
         create: (_) => AppdrawerBloc(_navigatorKey), child: _AppDrawer());
+        
   }
 }
 
