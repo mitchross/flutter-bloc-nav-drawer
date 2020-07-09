@@ -4,22 +4,22 @@ import 'package:flutter_login/authentication/authentication.dart';
 import 'package:flutter_login/navigation/app_drawer.dart';
 
 class HomePage extends StatelessWidget {
+  static Route route() {
+    return MaterialPageRoute(builder: (_) => HomePage());
+  }
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(
-        title: Text('Home'),
-      ),
-      drawer: new AppDrawer(),
-      body: Container(
-        child: Center(
-            child: RaisedButton(
+      appBar: AppBar(title: Text('Home')),
+      drawer: AppDrawer(),
+      body: Center(
+        child: RaisedButton(
           child: Text('logout'),
           onPressed: () {
-            BlocProvider.of<AuthenticationBloc>(context)
-                .add(AuthenticationLoggedOut());
+            context.bloc<AuthenticationBloc>().add(AuthenticationLoggedOut());
           },
-        )),
+        ),
       ),
     );
   }

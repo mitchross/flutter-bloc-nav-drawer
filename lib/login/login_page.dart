@@ -6,6 +6,12 @@ import 'package:flutter_login/login/login_form.dart';
 import 'package:user_repository/user_repository.dart';
 
 class LoginPage extends StatelessWidget {
+  static Route route({@required UserRepository userRepository}) {
+    return MaterialPageRoute(
+      builder: (_) => LoginPage(userRepository: userRepository),
+    );
+  }
+
   final UserRepository userRepository;
 
   LoginPage({Key key, @required this.userRepository})
