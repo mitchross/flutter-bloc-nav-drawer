@@ -1,10 +1,15 @@
-[![build](https://github.com/felangel/bloc/workflows/build/badge.svg)](https://github.com/felangel/bloc/actions)
+
+
+Orignial Modified Content  https://bloclibrary.dev/#/flutterlogintutorial
+- Authoring Credits to https://github.com/felangel
 
 # flutter_login + Navdrawer
 
 Following felangel login tutorial + adding Nav Drawer + Bloc
 
-## Getting Started
+![](screen1.png)
 
-For help getting started with Flutter, view our online
-[documentation](https://flutter.dev/).
+![](screen2.png)
+
+
+![](screen3.png)
