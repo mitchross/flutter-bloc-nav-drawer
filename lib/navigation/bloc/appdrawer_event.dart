@@ -8,4 +8,4 @@ abstract class AppdrawerEvent extends Equatable {
 
 class HomePageEvent extends AppdrawerEvent {}
 
-class TestPageEvent extends AppdrawerEvent {}
+class SamplePageEvent extends AppdrawerEvent {}

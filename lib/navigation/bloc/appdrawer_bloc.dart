@@ -16,7 +16,7 @@ class AppdrawerBloc extends Bloc<AppdrawerEvent, AppdrawerState> {
   ) async* {
     if (event is HomePageEvent) {
       yield AppdrawerState.homePage;
-    } else if (event is TestPageEvent) {
+    } else if (event is SamplePageEvent) {
       yield AppdrawerState.testPage;
     }
   }

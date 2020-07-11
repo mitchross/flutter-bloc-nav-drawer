@@ -3,6 +3,8 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_login/authentication/authentication.dart';
 import 'package:flutter_login/navigation/bloc/appdrawer_bloc.dart';
 
+import '../home/sample_page.dart';
+
 class AppDrawer extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
@@ -18,9 +20,9 @@ class AppDrawer extends StatelessWidget {
                 children: <Widget>[
                   ListTile(
                     leading: Icon(Icons.group),
-                    title: Text("Page 1"),
+                    title: Text("Sample Page"),
                     onTap: () {
-                      context.bloc<AppdrawerBloc>().add(TestPageEvent());
+                      context.bloc<AppdrawerBloc>().add(SamplePageEvent());
                     },
                   ),
                   ListTile(
