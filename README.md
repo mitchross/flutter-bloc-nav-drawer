@@ -7,9 +7,6 @@ Orignial Modified Content  https://bloclibrary.dev/#/flutterlogintutorial
 
 Following felangel login tutorial + adding Nav Drawer + Bloc
 
-![](screen1.png)
-
-![](screen2.png)
-
-
-![](screen3.png)
+<img src="screen1.png" height="500px">
+<img src="screen2.png" height="500px">
+<img src="screen3.png" height="500px">
