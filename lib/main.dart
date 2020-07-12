@@ -12,7 +12,8 @@ import 'package:user_repository/user_repository.dart';
 
 import 'home/sample_page.dart';
 
-class SimpleBlocDelegate extends BlocDelegate {
+
+class MyBlocObserver extends BlocObserver {
   @override
   void onEvent(Bloc bloc, Object event) {
     print(event);
@@ -33,7 +34,7 @@ class SimpleBlocDelegate extends BlocDelegate {
 }
 
 void main() {
-  BlocSupervisor.delegate = SimpleBlocDelegate();
+  Bloc.observer = MyBlocObserver();
   final userRepository = UserRepository();
   runApp(
     BlocProvider<AuthenticationBloc>(
@@ -121,7 +122,10 @@ class _AuthenticatedRootState extends State<AuthenticatedRoot> {
             );
             break;
           case AppdrawerState.homePage:
-            _navigator.popUntil((route) => route.isFirst);
+            _navigator.pushAndRemoveUntil(
+              HomePage.route(),
+              (route) => route.isFirst
+              );
             break;
         }
       },

@@ -7,8 +7,7 @@ part 'appdrawer_event.dart';
 part 'appdrawer_state.dart';
 
 class AppdrawerBloc extends Bloc<AppdrawerEvent, AppdrawerState> {
-  @override
-  AppdrawerState get initialState => AppdrawerState.homePage;
+  AppdrawerBloc() : super(AppdrawerState.homePage);
 
   @override
   Stream<AppdrawerState> mapEventToState(
