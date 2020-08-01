@@ -3,7 +3,7 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_login/authentication/authentication.dart';
 import 'package:flutter_login/navigation/bloc/appdrawer_bloc.dart';
 
-import '../home/sample_page.dart';
+
 
 class AppDrawer extends StatelessWidget {
   @override
@@ -38,7 +38,7 @@ class AppDrawer extends StatelessWidget {
                     onTap: () {
                       context
                           .bloc<AuthenticationBloc>()
-                          .add(AuthenticationLoggedOut());
+                          .add(AuthenticationLogoutRequested());
                     },
                   )
                 ],

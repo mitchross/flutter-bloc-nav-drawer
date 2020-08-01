@@ -5,20 +5,30 @@ import 'package:flutter_login/navigation/app_drawer.dart';
 
 class HomePage extends StatelessWidget {
   static Route route() {
-    return MaterialPageRoute(builder: (_) => HomePage());
+    return MaterialPageRoute<void>(builder: (_) => HomePage());
   }
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(title: Text('Home')),
+      appBar: AppBar(title: const Text('Home')),
       drawer: AppDrawer(),
       body: Center(
-        child: RaisedButton(
-          child: Text('logout'),
-          onPressed: () {
-            context.bloc<AuthenticationBloc>().add(AuthenticationLoggedOut());
-          },
+        child: Column(
+          mainAxisSize: MainAxisSize.min,
+          children: <Widget>[
+            Text(
+              'UserID: ${context.bloc<AuthenticationBloc>().state.user.id}',
+            ),
+            RaisedButton(
+              child: const Text('Logout'),
+              onPressed: () {
+                context
+                    .bloc<AuthenticationBloc>()
+                    .add(AuthenticationLogoutRequested());
+              },
+            ),
+          ],
         ),
       ),
     );
